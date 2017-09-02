@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://pramantha.cn">
-  <title>偷得浮生半日闲</title>
+  <title>浮生的一半</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="偷得浮生半日闲">
+<meta property="og:title" content="浮生的一半">
 <meta property="og:url" content="http://pramantha.cn/index.html">
-<meta property="og:site_name" content="偷得浮生半日闲">
+<meta property="og:site_name" content="浮生的一半">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="偷得浮生半日闲">
+<meta name="twitter:title" content="浮生的一半">
   
-    <link rel="alternative" href="/atom.xml" title="偷得浮生半日闲" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="浮生的一半" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -178,53 +178,10 @@ int main()
         cout &lt;&lt; line&lt;&lt; endl;  
     }  
 }  
-</code></pre><p>  结构体内含成员函数，我也不太懂，先记下。  </p>
-<pre><code>struct point
-{  
-    int x, y;  
-    point(int x=0,int y=0):x(x),y(y){}
-};
-
-point operator + (const point&amp; A, const point&amp; B)
-{
-    return point(A.x + B.x, A.y + B.y);
-}
-
-ostream&amp; operator &lt;&lt; (ostream &amp;out, const point &amp;p)
-{
-    out &lt;&lt; &quot;(&quot; &lt;&lt; p.x &lt;&lt; &apos;,&apos; &lt;&lt; p.y &lt;&lt; &quot;)&quot;;
-    return out;
-}
-
-int main()
-{    
-    point a, b(1, 2);
-    a.x = 3;
-    cout &lt;&lt; a + b &lt;&lt; endl;
-    return 0;
-}  
-</code></pre><p>template&lt;typename T&gt;  在这个下面的函数适用于任何类型</p>
-<pre><code>template&lt;typename T&gt;
-T sum(T* begin, T* end)
-{  
-    T *p = begin;  
-    T ans = 0;  
-    for (T *p = begin; p != end; p++)
-        ans = ans + *p;
-    return ans;
-}
-
-int main()  
-{
-    double a[] = { 1.1,2.2,3.3 };
-    cout &lt;&lt; sum(a,a + 3) &lt;&lt; endl;
-    int b[]={1,2,3};
-    cout&lt;&lt;sum(b,b + 3)&lt;&lt;endl;
-    point c[]={poinnt(1,2),point(2,3),point(3,4)};
-    cout&lt;&lt;sum(c,c + 3)&lt;&lt;endl;
-    return 0;
-}
-</code></pre>
+</code></pre><p>  结构体内含成员函数，我也不太懂，先记下。<br>
+        
+          <a class="article-more-a" href="/2017/08/06/读书笔记2017-8-6/#more">more >></a>
+        
       
 
       
