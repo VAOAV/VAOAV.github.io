@@ -165,10 +165,15 @@
 <li>python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。    </li>
 <li>x=input(“x=”):给x赋值    </li>
 <li>pow(2,3)==2**3</li>
-<li>round函数会把浮点数四舍五入</li>
-<li>python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用<em>from __future__ import division</em>。当然在python2中“//”仍表示执行整除。    <figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;from __furture__ import division    </div><div class="line">&gt;&gt;&gt;<span class="number">1</span>/<span class="number">2</span>  </div><div class="line"><span class="number">0.5</span>        </div><div class="line">&gt;&gt;&gt;<span class="number">1</span><span class="comment">//2    </span></div><div class="line"><span class="number">0</span></div></pre></td></tr></table></figure></li>
+<li>round函数会把浮点数四舍五入  </li>
+<li>python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用<em>from __future__ import division</em>。当然在python2中“//”仍表示执行整除。  </li>
 </ul>
-
+<pre><code>&gt;&gt;&gt;from __furture__ import division    
+&gt;&gt;&gt;1/2  
+0.5        
+&gt;&gt;&gt;1//2    
+0示执行整除。  
+</code></pre>
       
 
       

@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://pramantha.cn">
   <title>初学python一 | 浮生的一半</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习版本：python2.7   python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。     x=input(“x=”):给x赋值     pow(2,3)==2**3 round函数会把浮点数四舍五入 python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用from __future__ import division。">
+  <meta name="description" content="学习版本：python2.7   python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。     x=input(“x=”):给x赋值     pow(2,3)==2**3 round函数会把浮点数四舍五入   python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用from __future__ import divisio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初学python一">
 <meta property="og:url" content="http://pramantha.cn/2017/09/03/初学python一/index.html">
 <meta property="og:site_name" content="浮生的一半">
-<meta property="og:description" content="学习版本：python2.7   python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。     x=input(“x=”):给x赋值     pow(2,3)==2**3 round函数会把浮点数四舍五入 python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用from __future__ import division。">
-<meta property="og:updated_time" content="2017-09-03T15:35:40.222Z">
+<meta property="og:description" content="学习版本：python2.7   python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。     x=input(“x=”):给x赋值     pow(2,3)==2**3 round函数会把浮点数四舍五入   python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用from __future__ import divisio">
+<meta property="og:updated_time" content="2017-09-17T16:28:48.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初学python一">
-<meta name="twitter:description" content="学习版本：python2.7   python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。     x=input(“x=”):给x赋值     pow(2,3)==2**3 round函数会把浮点数四舍五入 python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用from __future__ import division。">
+<meta name="twitter:description" content="学习版本：python2.7   python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。     x=input(“x=”):给x赋值     pow(2,3)==2**3 round函数会把浮点数四舍五入   python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用from __future__ import divisio">
   
     <link rel="alternative" href="/atom.xml" title="浮生的一半" type="application/atom+xml">
   
@@ -167,10 +167,15 @@
 <li>python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。    </li>
 <li>x=input(“x=”):给x赋值    </li>
 <li>pow(2,3)==2**3</li>
-<li>round函数会把浮点数四舍五入</li>
-<li>python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用<em>from __future__ import division</em>。当然在python2中“//”仍表示执行整除。    <figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;from __furture__ import division    </div><div class="line">&gt;&gt;&gt;<span class="number">1</span>/<span class="number">2</span>  </div><div class="line"><span class="number">0.5</span>        </div><div class="line">&gt;&gt;&gt;<span class="number">1</span><span class="comment">//2    </span></div><div class="line"><span class="number">0</span></div></pre></td></tr></table></figure></li>
+<li>round函数会把浮点数四舍五入  </li>
+<li>python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用<em>from __future__ import division</em>。当然在python2中“//”仍表示执行整除。  </li>
 </ul>
-
+<pre><code>&gt;&gt;&gt;from __furture__ import division    
+&gt;&gt;&gt;1/2  
+0.5        
+&gt;&gt;&gt;1//2    
+0示执行整除。  
+</code></pre>
       
 
       
