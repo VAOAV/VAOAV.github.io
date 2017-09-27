@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://pramantha.cn/2017/09/03/初学python一/index.html">
 <meta property="og:site_name" content="浮生的一半">
 <meta property="og:description" content="学习版本：python2.7   python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。     x=input(“x=”):给x赋值     pow(2,3)==2**3 round函数会把浮点数四舍五入   python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用from __future__ import divisio">
-<meta property="og:updated_time" content="2017-09-17T16:28:48.020Z">
+<meta property="og:updated_time" content="2017-09-27T16:19:30.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初学python一">
 <meta name="twitter:description" content="学习版本：python2.7   python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。     x=input(“x=”):给x赋值     pow(2,3)==2**3 round函数会把浮点数四舍五入   python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用from __future__ import divisio">
@@ -175,7 +175,18 @@
 0.5        
 &gt;&gt;&gt;1//2    
 0示执行整除。  
-</code></pre>
+</code></pre><a id="more"></a>          
+<ul>
+<li>原始字符串不会把反斜线当作特殊字符：</li>
+</ul>
+<pre><code>&gt;&gt;&gt; print r &apos;C:\nowhere&apos;    
+C:\nowhere    
+&gt;&gt;&gt; print r &apos;C:\Program Files\fnord\foo\bar\baz\bozz&apos;    
+&apos;C:\Program Files\fnord\foo\bar\baz\bozz    
+</code></pre><ul>
+<li>值转化为字符串<br>1.str函数，把值转换为合理的字符串。<br>2.repr函数，创建一个字符串。    </li>
+</ul>
+
       
 
       
