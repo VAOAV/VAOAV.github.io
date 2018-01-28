@@ -139,56 +139,48 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-HTML元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-读书笔记2017-8-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/12/HTML元素/">HTML元素</a>
+      <a class="article-title" href="/2017/08/06/读书笔记2017-8-6/">17年暑假读书笔记</a>
     </h1>
   
 
         
-        <a href="/2017/10/12/HTML元素/" class="archive-article-date">
-  	<time datetime="2017-10-11T16:17:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
+        <a href="/2017/08/06/读书笔记2017-8-6/" class="archive-article-date">
+  	<time datetime="2017-08-06T06:56:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h3>HTML 元素</h3><br>HTML 元素指的是从开始标签（start tag）到结束标签（end tag）的所有代码。    <p></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">开始标签</th>
-<th style="text-align:center">元素内容</th>
-<th style="text-align:center">结束标签</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&lt;p&gt;</td>
-<td style="text-align:center">This is a paragraph</td>
-<td style="text-align:center">&lt;/p&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;a href=”default.htm”&gt;</td>
-<td style="text-align:center">This is a link</td>
-<td style="text-align:center">&lt;/a&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;br/&gt;</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"><p></p></td>
-</tr>
-</tbody>
-</table>
-<p>注释：开始标签常被称为开放标签（opening tag），结束标签常称为闭合标签（closing tag）。<br></p>
+        <p>2017/8/6    </p>
+<p>string 不多说，stringstream函数定义输入输出流。  </p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;sstream&gt;
+using namespace std;    
+
+int main()
+{
+    int x,sum=0;
+    string line;
+    while (getline(cin, line))
+    {
+        sum = 0;
+        stringstream ss(line);  
+        while (ss &gt;&gt; x) 
+        cout &lt;&lt; line&lt;&lt; endl;  
+    }  
+}  
+</code></pre><p>  结构体内含成员函数，我也不太懂，先记下。<br></p>
         
-          <a class="article-more-a" href="/2017/10/12/HTML元素/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/06/读书笔记2017-8-6/#more">more >></a>
         
       
 
@@ -197,22 +189,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/12/HTML元素/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/06/读书笔记2017-8-6/">展开全文 >></a>
         </p>
       
 
@@ -242,266 +223,6 @@
 
 
   
-    <article id="post-基本的HTML标签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/基本的HTML标签/">基本的HTML标签</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/10/基本的HTML标签/" class="archive-article-date">
-  	<time datetime="2017-10-10T15:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><font size="4">HTML 标题</font><br>HTML 标题是通过&lt;h1&gt;-&lt;h6&gt;等标签来定义的。    </p>
-<pre><code>&lt;h1&gt;This is a heading&lt;/h1&gt;    
-&lt;h2&gt;This is a heading&lt;/h2&gt;    
-&lt;h3&gt;This is a heading&lt;/h3&gt;    
-</code></pre><p></p><h1>This is a heading</h1>    <p></p>
-<p></p><h2>This is a heading</h2>    <p></p>
-<p></p><h3>THis is a heading</h3><br>
-        
-          <a class="article-more-a" href="/2017/10/10/基本的HTML标签/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/基本的HTML标签/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTML 简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/09/HTML 简介/">HTML 简介</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/09/HTML 简介/" class="archive-article-date">
-  	<time datetime="2017-10-09T11:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><font size="4"> 什么是 HTML？</font><br>HTML 是用来描述网页的一种语言。    </p>
-<ul>
-<li>HTML 指的是超文本标记语言 (Hyper Text Markup Language)    </li>
-<li>HTML 不是一种编程语言，而是一种标记语言 (markup language)    </li>
-<li>标记语言是一套标记标签 (markup tag)</li>
-<li>HTML 使用标记标签来描述网页    </li>
-</ul>
-<hr>
-<p><font size="4">HTML 标签</font><br>HTML 标记标签通常被称为 HTML 标签 (HTML tag)。<br></p>
-        
-          <a class="article-more-a" href="/2017/10/09/HTML 简介/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/09/HTML 简介/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-初学python一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/03/初学python一/">初学python一</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/03/初学python一/" class="archive-article-date">
-  	<time datetime="2017-09-03T14:04:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><font size="4">学习版本：python2.7</font></p>
-<hr>
-<ul>
-<li>python2中数字0在首位表示八进制，python3禁止这样的写法。在python2中，0x在首位表示八进制。    </li>
-<li>x=input(“x=”):给x赋值    </li>
-<li>pow(2,3)==2**3</li>
-<li>round函数会把浮点数四舍五入  </li>
-<li>python2中两个整数使用”/“是进行下取整，要想进行正常的除法使用<em>from __future__ import division</em>。当然在python2中“//”仍表示执行整除。  </li>
-</ul>
-<pre><code>&gt;&gt;&gt;from __furture__ import division    
-&gt;&gt;&gt;1/2  
-0.5        
-&gt;&gt;&gt;1//2    
-0示执行整除。  
-</code></pre>
-        
-          <a class="article-more-a" href="/2017/09/03/初学python一/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/03/初学python一/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -512,7 +233,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 AOA
+    		&copy; 2018 AOA
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -585,14 +306,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
