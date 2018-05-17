@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://pramantha.cn">
-  <title>浮生的一半</title>
+  <title>处理及调度算法 | 浮生的一半</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="浮生的一半">
-<meta property="og:url" content="http://pramantha.cn/index.html">
+  <meta name="description" content="在多道程序或多任务系统中，系统同时处于就绪态的进程有若干个。也就是说能运行的进程数远远大于处理机的个数。为了使系统中的各进程能有条不紊地运行，必须选择某种调度策略以选择一进程占用处理机。     先来先服务算法和优先级调度算法">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="处理及调度算法">
+<meta property="og:url" content="http://pramantha.cn/2018/05/17/处理及调度算法/index.html">
 <meta property="og:site_name" content="浮生的一半">
+<meta property="og:description" content="在多道程序或多任务系统中，系统同时处于就绪态的进程有若干个。也就是说能运行的进程数远远大于处理机的个数。为了使系统中的各进程能有条不紊地运行，必须选择某种调度策略以选择一进程占用处理机。     先来先服务算法和优先级调度算法">
+<meta property="og:image" content="http://oxpptu46t.bkt.clouddn.com/%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1.png">
+<meta property="og:image" content="http://oxpptu46t.bkt.clouddn.com/%E4%BC%98%E5%85%88%E7%BA%A7%E8%B0%83%E5%BA%A6.png">
+<meta property="og:updated_time" content="2018-05-17T15:02:28.182Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浮生的一半">
+<meta name="twitter:title" content="处理及调度算法">
+<meta name="twitter:description" content="在多道程序或多任务系统中，系统同时处于就绪态的进程有若干个。也就是说能运行的进程数远远大于处理机的个数。为了使系统中的各进程能有条不紊地运行，必须选择某种调度策略以选择一进程占用处理机。     先来先服务算法和优先级调度算法">
+<meta name="twitter:image" content="http://oxpptu46t.bkt.clouddn.com/%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1.png">
   
     <link rel="alternative" href="/atom.xml" title="浮生的一半" type="application/atom+xml">
   
@@ -137,16 +145,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-处理及调度算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-处理及调度算法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/17/处理及调度算法/">处理及调度算法</a>
+    <h1 class="article-title" itemprop="name">
+      处理及调度算法
     </h1>
   
 
@@ -160,181 +166,201 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在多道程序或多任务系统中，系统同时处于就绪态的进程有若干个。也就是说能运行的进程数远远大于处理机的个数。为了使系统中的各进程能有条不紊地运行，必须选择某种调度策略以选择一进程占用处理机。    </p>
-<p>先来先服务算法和优先级调度算法<br></p>
-        
-          <a class="article-more-a" href="/2018/05/17/处理及调度算法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/17/处理及调度算法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-操作系统之生产者消费者" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/16/操作系统之生产者消费者/">操作系统之生产者消费者</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/16/操作系统之生产者消费者/" class="archive-article-date">
-  	<time datetime="2018-05-16T08:12:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>生产者消费者问题（英语：Producer-consumer problem），也称有限缓冲问题（英语：Bounded-buffer problem），是一个多线程同步问题的经典案例。该问题描述了两个共享固定大小缓冲区的线程——即所谓的“生产者”和“消费者”——在实际运行时会发生的问题。生产者的主要作用是生成一定量的数据放到缓冲区中，然后重复此过程。与此同时，消费者也在缓冲区消耗这些数据。该问题的关键就是要保证生产者不会在缓冲区满时加入数据，消费者也不会在缓冲区中空时消耗数据。    </p>
-<p> <img src="http://oxpptu46t.bkt.clouddn.com/protimg.jpg" width="610" height="400">     </p>
-        
-          <a class="article-more-a" href="/2018/05/16/操作系统之生产者消费者/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/16/操作系统之生产者消费者/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-17年暑假读书笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/16/17年暑假读书笔记/">17年暑假读书笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/16/17年暑假读书笔记/" class="archive-article-date">
-  	<time datetime="2018-05-16T08:09:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>string 不多说，stringstream函数定义输入输出流。  </p>
+<p>先来先服务算法和优先级调度算法<br><a id="more"></a>    </p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;string&gt;
-#include&lt;sstream&gt;
-using namespace std;    
+#include&lt;queue&gt;    
+using namespace std;
+int comes[] = { 0,5,6,7,8};//就绪时间
+int service[] = { 4,3,4,2,4 };//执行完所需时间
+int values[] = { 2,8,3,1,4 };//优先数
+int run[] = { 0,0,0,0,0 };//运行时间
+int Exit[] = { 0,0,0,0,0 };//退出时间
+
+void printfQ(queue&lt;int&gt;Q)//输出队列Q    
+{
+    int  t = 0;
+    int date, data;
+    if(!Q.empty())
+        data = Q.front();
+    else cout &lt;&lt; &quot;NULL&quot;;
+    while (!Q.empty())
+    {
+        date = Q.front();
+        if (date == data &amp;&amp; t)//队列输出一遍    
+            break;
+        cout &lt;&lt;&quot;process &quot;&lt;&lt;date+1&lt;&lt;&quot; &quot;;
+        Q.pop();
+        Q.push(date);
+        t++;
+    }
+}
+
+void work_h()//数据按先到先执行进入就绪队列,同时输出完成的任务
+{ 
+    int flag = 0;
+    int mutex = 0;
+    int i = 1;
+    int t = 1;
+    queue&lt;int&gt;ready;
+    queue&lt;int&gt;complete;
+    int target_i = 0;
+    t = target_i;
+    cout &lt;&lt; &quot;t=0: the ready_queue is NULL;Process 1 has runned 0,the rest time is &quot; &lt;&lt; service[0]&lt;&lt;endl&lt;&lt;endl;
+    complete.push(0);//完成队列的最后一个正在执行
+    Exit[target_i] += t + service[target_i];//程序开始运行时给出退出时间
+    t++;
+    while (t &gt;= comes[target_i])//进程在执行
+    {
+        while (t == comes[i])
+        {
+            ready.push(i);
+            i++;
+        }
+        if (t &gt;= Exit[target_i])
+        {
+            if (!ready.empty())//就绪队列不为空
+            {
+                target_i++;
+                Exit[target_i] = t + service[target_i];
+                complete.push(ready.front());
+                ready.pop();
+            }
+            else//就绪队列为空
+            {
+                if (target_i+1 &lt; sizeof(comes) / sizeof(comes[0]))
+                    mutex=1;
+                else {
+                    flag = 1;//进程全部执行
+                }
+            }
+        }
+        if (mutex) {
+            cout &lt;&lt; &quot;t=&quot; &lt;&lt; t &lt;&lt; &quot;: Waiting!&quot; &lt;&lt; endl&lt;&lt;endl;
+            mutex = 0;
+        }
+        else {
+            cout &lt;&lt; &quot;t=&quot; &lt;&lt; t &lt;&lt; &quot;: the ready_queue is &quot;;
+            printfQ(ready);
+            cout &lt;&lt; &quot;;Process &quot; &lt;&lt; target_i + 1 &lt;&lt; &quot; has runned &quot; &lt;&lt; service[target_i]- Exit[target_i] + t &lt;&lt; &quot;,the rest time is &quot; &lt;&lt;   (Exit[target_i] - t) &lt;&lt; endl&lt;&lt;endl;
+        }
+        if (flag)
+            break;
+        t++;
+    }
+    float sum = 0;
+    cout &lt;&lt; &quot;********************************************************&quot;&lt;&lt;endl;
+    for (int i = 0; i &lt; sizeof(comes) / sizeof(comes[0]); i++)
+    {
+        cout &lt;&lt; &quot;Process &quot; &lt;&lt; i + 1 &lt;&lt; &quot;&apos;s turnaround time is &quot; &lt;&lt; Exit[i] - comes[i] &lt;&lt; endl;
+        sum += Exit[i] - comes[i];
+    }
+    cout &lt;&lt; &quot;The average turnaround time is &quot; &lt;&lt; sum / (sizeof(comes) / sizeof(comes[0])) &lt;&lt; endl;
+}
+
+void PRI()//优先级调度算法
+{
+    int process = -1;
+    queue&lt;int&gt;ready;//就绪队列
+    queue&lt;int&gt;box;//空的队列
+    queue&lt;int&gt;complete;//完成态
+    int target_i = 0;
+    int i = 1;
+    int t = 0;
+    process = 0;
+    while (process != -1&amp;&amp;service[process]&gt;=0)
+    {
+        cout &lt;&lt; &quot;t=&quot; &lt;&lt; t+1;
+        while (!ready.empty())//正在运行的进程优先级与就绪队列对比，选出新的最高优先级
+        {
+            if (values[ready.front()] &gt; values[process])
+            {
+                    box.push(process);
+                    process = ready.front();//process为最低优先级
+            }
+            else box.push(ready.front());
+            ready.pop();
+        }
+        box.push(process);
+        if (comes[i] == t)//i放入就绪队列
+        {
+            target_i = i;
+            while (!box.empty())//插入就绪队列
+            {
+                if (service[box.front()] == 0)//饥渴
+                {
+                    ready.push(i);
+                    complete.push(box.front());
+                }
+                else {
+                    if (values[box.front()] &gt;= values[target_i])
+                    {
+                        ready.push(target_i);
+                        target_i = box.front();
+                    }
+                    else ready.push(box.front());
+                }
+                box.pop();
+                if (box.empty()&amp;&amp;target_i!=ready.back()) ready.push(target_i);
+            }
+            i++;
+        }
+        else {
+            while (!box.empty())//插入就绪队列
+            {
+                ready.push(box.front());
+                box.pop();
+            }
+        }
+        process = ready.front();
+        ready.pop();
+        t++;
+        if (service[process])
+        {
+            service[process]--;
+            values[process]++;
+            run[process]++;
+            cout &lt;&lt; &quot; :the ready_queue is: &quot;;
+            printfQ(ready);
+            cout &lt;&lt; &quot;;Process &quot; &lt;&lt; process + 1 &lt;&lt; &quot; has runned &quot; &lt;&lt; run[process] &lt;&lt; &quot;,the rest time is: &quot; &lt;&lt; service[process] &lt;&lt; endl&lt;&lt;endl;
+        }
+        else
+        {
+            if (!ready.empty())
+            {
+                complete.push(process);
+                process = ready.front();//process运行完
+                ready.pop();
+                service[process]--;
+                values[process]++;
+                run[process]++;
+                cout &lt;&lt; &quot; :the ready_queue is: &quot;;
+                printfQ(ready);
+                cout &lt;&lt; &quot;;Process &quot; &lt;&lt; process + 1 &lt;&lt; &quot; has runned &quot; &lt;&lt; run[process] &lt;&lt; &quot;,the rest time is: &quot; &lt;&lt; service[process] &lt;&lt; endl&lt;&lt;endl;
+
+            }
+            else
+            {
+                if (complete.size() != sizeof(comes) / sizeof(comes[0])-1)
+                    cout &lt;&lt; &quot; :Waiting!&quot; &lt;&lt; endl &lt;&lt; endl;
+                else {
+                    complete.push(process);
+                    process = -1;
+                }
+            }
+        }
+    }
+}
 
 int main()
 {
-    int x,sum=0;
-    string line;
-    while (getline(cin, line))
-    {
-        sum = 0;
-        stringstream ss(line);  
-        while (ss &gt;&gt; x) 
-        cout &lt;&lt; line&lt;&lt; endl;  
-    }  
-}  
-</code></pre><p>  结构体内含成员函数，我也不太懂，先记下。<br></p>
-        
-          <a class="article-more-a" href="/2018/05/16/17年暑假读书笔记/#more">more >></a>
-        
+    cout &lt;&lt; &quot;先来先服务调度算法&quot; &lt;&lt; endl;
+    work_h();
+    cout &lt;&lt; &quot;抢占式优先调度算法&quot; &lt;&lt; endl;
+    PRI();
+    return 0;
+}
+</code></pre><p>先来先服务<br><img src="http://oxpptu46t.bkt.clouddn.com/%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1.png" width="600" height="500"><br>优先级调度<br><img src="http://oxpptu46t.bkt.clouddn.com/%E4%BC%98%E5%85%88%E7%BA%A7%E8%B0%83%E5%BA%A6.png" width="610" height="400">  </p>
+
       
 
       
@@ -347,7 +373,7 @@ int main()
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
         		</li>
       		
 		</ul>
@@ -356,16 +382,75 @@ int main()
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/16/17年暑假读书笔记/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://pramantha.cn/2018/05/17/处理及调度算法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/16/操作系统之生产者消费者/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">操作系统之生产者消费者</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -385,8 +470,12 @@ int main()
 
 
 
+  
+  
+  
 
   
+
   
 
 
@@ -409,8 +498,8 @@ int main()
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
