@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://pramantha.cn">
-  <title>Archives: 2018 | 浮生的一半</title>
+  <title>操作系统之内存分配 | 浮生的一半</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="浮生的一半">
-<meta property="og:url" content="http://pramantha.cn/archives/2018/index.html">
+  <meta name="description" content="为了合理地分配和使用这些存储空间，当用户提出申请主存储器空间时，存储管理必须根据申请者的要求，按一定的策略分析主存空间和使用情况，找出足够的空闲区域给申请者。当作业撤离归还主存资源时，则存储管理要收回占用的主存空间。分别使用首次适应算法、最佳适应算法、最差适应算法实现">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统之内存分配">
+<meta property="og:url" content="http://pramantha.cn/2018/05/22/操作系统之内存分配/index.html">
 <meta property="og:site_name" content="浮生的一半">
+<meta property="og:description" content="为了合理地分配和使用这些存储空间，当用户提出申请主存储器空间时，存储管理必须根据申请者的要求，按一定的策略分析主存空间和使用情况，找出足够的空闲区域给申请者。当作业撤离归还主存资源时，则存储管理要收回占用的主存空间。分别使用首次适应算法、最佳适应算法、最差适应算法实现">
+<meta property="og:updated_time" content="2018-05-22T02:24:06.355Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浮生的一半">
+<meta name="twitter:title" content="操作系统之内存分配">
+<meta name="twitter:description" content="为了合理地分配和使用这些存储空间，当用户提出申请主存储器空间时，存储管理必须根据申请者的要求，按一定的策略分析主存空间和使用情况，找出足够的空闲区域给申请者。当作业撤离归还主存资源时，则存储管理要收回占用的主存空间。分别使用首次适应算法、最佳适应算法、最差适应算法实现">
   
     <link rel="alternative" href="/atom.xml" title="浮生的一半" type="application/atom+xml">
   
@@ -137,36 +142,211 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-操作系统之内存分配" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      操作系统之内存分配
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/22/操作系统之内存分配/" class="archive-article-date">
+
+        
+        <a href="/2018/05/22/操作系统之内存分配/" class="archive-article-date">
   	<time datetime="2018-05-22T02:07:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/22/操作系统之内存分配/">操作系统之内存分配</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>为了合理地分配和使用这些存储空间，当用户提出申请主存储器空间时，存储管理必须根据申请者的要求，按一定的策略分析主存空间和使用情况，找出足够的空闲区域给申请者。当作业撤离归还主存资源时，则存储管理要收回占用的主存空间。<br>分别使用首次适应算法、最佳适应算法、最差适应算法实现<br><a id="more"></a>    </p>
+<pre><code>#include&lt;iostream&gt;    
+#include&lt;time.h&gt;    
+#include&lt;iomanip&gt;    
+using namespace std;    
+const int block = 6;    
+const int MAX = 999;    
+const int NUM = 10;    
+int store[NUM][2];//[0] area,[1] size    
 
-        <div class="article-info info-on-right">
-          
+typedef struct 
+{
+    int address;
+    int size;
+    int rest;
+    int next;
+}memory;
+memory init_part[block];
+
+void init(memory init_part[])
+{
+    init_part[0] = { 0,10,10};
+    init_part[1] = { 10,15,15};
+    init_part[2] = { 25,25,25};
+    init_part[3] = { 50,20 ,20};
+    init_part[4] = { 70,45,45};
+    init_part[5] = { 115,146 ,146};
+    cout &lt;&lt; &quot;        address  size&quot; &lt;&lt; endl;
+    for (int i = 0; i &lt; block; i++)
+        cout &lt;&lt; &quot;memory&quot; &lt;&lt; i + 1 &lt;&lt; &quot;   &quot;&lt;&lt;setw(3)&lt;&lt;left&lt;&lt;init_part[i].address &lt;&lt; &quot;K&quot; &lt;&lt; &quot;   &quot; &lt;&lt; setw(3)&lt;&lt;init_part[i].size &lt;&lt; &quot;Kb&quot; &lt;&lt; endl;
+}
+
+int get_rest()
+{
+    int rest = 0;
+    for (int i = 0; i &lt; block; i++)
+    {
+        rest=init_part[i].rest&gt;rest?init_part[i].rest:rest;
+    }
+    return rest;
+}
+
+int Ff(int size)//first fit
+{
+    int flag = 1;
+    int i;
+    for (i = 0; i &lt; block&amp;&amp;flag; i++)
+    {
+        if (init_part[i].rest &gt;= size)
+        {
+            init_part[i].rest -= size;
+            flag = 0;
+            cout &lt;&lt; &quot; apply &quot; &lt;&lt; setw(3) &lt;&lt; size &lt;&lt; &quot;Kb from memory &quot; &lt;&lt; i + 1 &lt;&lt; endl;
+            cout &lt;&lt; &quot;memory &quot; &lt;&lt; i + 1 &lt;&lt; &quot; :surplus &quot; &lt;&lt; init_part[i].rest &lt;&lt; endl &lt;&lt; endl;
+        }
+    }
+    return i-1;
+}
+
+int Bf(int size)//best fit
+{
+    memory part;
+    int function;
+    int i,n;
+    bool flag = true;
+    for (i = 0; i &lt; block; i++)//n*n --sort
+    {
+        init_part[i].next = 0;
+        for (int j=0; j &lt; block; j++)
+        {
+            if (init_part[i].rest &gt;= init_part[j].rest)
+            {
+                init_part[i].next++;
+            }
+
+        }
+    }
+    for (i = 0; i &lt; block&amp;&amp;flag; i++)
+    {
+        int j=0;
+        for (j ; j &lt; block; j++)
+        {
+            if (init_part[j].next == i + 1)
+            {
+                break;
+            }
+        }
+        if (init_part[j].rest &gt;= size)
+        {
+            init_part[j].rest -= size;
+            flag = false;
+            cout &lt;&lt; &quot; apply &quot; &lt;&lt; setw(3) &lt;&lt; size &lt;&lt; &quot;Kb from memory &quot; &lt;&lt; j+1 &lt;&lt; endl;
+            cout &lt;&lt; &quot;memory &quot; &lt;&lt; j+1 &lt;&lt; &quot; :surplus &quot; &lt;&lt; init_part[j].rest &lt;&lt; endl &lt;&lt; endl;
+            i = j;
+            break;
+        }
+    }
+    return i;
+}
+
+int Wf(int size)//worst fit
+{
+    memory part;
+    int function;
+    int i, n;
+    bool flag = true;
+    for (i = 0; i &lt; block; i++)//n*n --sort
+    {
+        init_part[i].next = 0;
+        for (int j = 0; j &lt; block; j++)
+        {
+            if (init_part[i].rest &lt;= init_part[j].rest)
+            {
+                init_part[i].next++;
+            }
+
+        }
+    }
+    for (i = 0; i &lt; block&amp;&amp;flag; i++)
+    {
+        int j = 0;
+        for (j; j &lt; block; j++)
+        {
+            if (init_part[j].next == i + 1)
+            {
+                break;
+            }
+        }
+        if (init_part[j].rest &gt;= size)
+        {
+            init_part[j].rest -= size;
+            flag = false;
+            cout &lt;&lt; &quot; apply &quot; &lt;&lt; setw(3) &lt;&lt; size &lt;&lt; &quot;Kb from memory &quot; &lt;&lt; j + 1 &lt;&lt; endl;
+            cout &lt;&lt; &quot;memory &quot; &lt;&lt; j + 1 &lt;&lt; &quot; :surplus &quot; &lt;&lt; init_part[j].rest &lt;&lt; endl &lt;&lt; endl;
+            i = j;
+            break;
+        }
+    }
+    return i;
+}
+
+void realse()
+{
+    for (int i = 0; i &lt; NUM&amp;&amp;store[i][0]; i++)
+    {
+        if (store[i][0] == -1)
+            continue;
+        int r = rand() % 3;
+        if (!r)
+        {
+            init_part[store[i][0]].rest += store[i][1];
+            cout &lt;&lt; &quot;Program&quot; &lt;&lt; i+1 &lt;&lt; &quot; finished ;&quot; &lt;&lt; &quot;memory &quot; &lt;&lt; store[i][0] +1&lt;&lt; &quot; realse &quot; &lt;&lt; store[i][1] &lt;&lt; endl;
+            cout &lt;&lt; &quot;memory &quot; &lt;&lt; store[i][0] + 1 &lt;&lt; &quot; :surplus &quot; &lt;&lt; init_part[store[i][0]].rest &lt;&lt; endl&lt;&lt;endl;
+            store[i][0] = -1;
+        }
+    }
+}
+
+int main()
+{
+    srand((unsigned)time(0));
+    init(init_part);
+    int rest;
+    for(int i=0;i&lt;NUM;i++)
+    {
+        rest = get_rest();
+        int size = rand() %rest;//program.size
+        if (!size) size++;
+        cout &lt;&lt; &quot;Program&quot; &lt;&lt; i + 1;
+        //store[i][0]=Ff(size);
+        //store[i][0]=Bf(size);
+        store[i][0]=Wf(size);
+        store[i][1] = size;
+        realse();
+    }
+    return 0;
+}
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -178,136 +358,103 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://pramantha.cn/2018/05/22/操作系统之内存分配/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/20/操作系统之银行家算法/" class="archive-article-date">
-  	<time datetime="2018-05-20T15:01:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/20/操作系统之银行家算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">操作系统之银行家算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/20/操作系统之银行家算法/">操作系统之银行家算法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/17/处理及调度算法/" class="archive-article-date">
-  	<time datetime="2018-05-17T14:35:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/17/处理及调度算法/">处理机调度算法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/16/操作系统之生产者消费者/" class="archive-article-date">
-  	<time datetime="2018-05-16T08:12:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/16/操作系统之生产者消费者/">操作系统之生产者消费者</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -331,8 +478,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
