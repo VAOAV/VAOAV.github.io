@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://pramantha.cn">
-  <title>浮生的一半</title>
+  <title>简单的类使用 | 浮生的一半</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="浮生的一半">
-<meta property="og:url" content="http://pramantha.cn/index.html">
+  <meta name="description" content="使用类来进行进行简单的几何计算         #include&amp;lt;iostream&amp;gt; using namespace std; const double PI = 3.1415926;  class square { public:     void notes()     {         cout &amp;lt;&amp;lt; &amp;quot;请输入正方形边长：&amp;quot; &amp;lt;&amp;lt; e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单的类使用">
+<meta property="og:url" content="http://pramantha.cn/2018/05/24/简单的类使用/index.html">
 <meta property="og:site_name" content="浮生的一半">
+<meta property="og:description" content="使用类来进行进行简单的几何计算         #include&amp;lt;iostream&amp;gt; using namespace std; const double PI = 3.1415926;  class square { public:     void notes()     {         cout &amp;lt;&amp;lt; &amp;quot;请输入正方形边长：&amp;quot; &amp;lt;&amp;lt; e">
+<meta property="og:updated_time" content="2018-05-24T06:14:36.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浮生的一半">
+<meta name="twitter:title" content="简单的类使用">
+<meta name="twitter:description" content="使用类来进行进行简单的几何计算         #include&amp;lt;iostream&amp;gt; using namespace std; const double PI = 3.1415926;  class square { public:     void notes()     {         cout &amp;lt;&amp;lt; &amp;quot;请输入正方形边长：&amp;quot; &amp;lt;&amp;lt; e">
   
     <link rel="alternative" href="/atom.xml" title="浮生的一半" type="application/atom+xml">
   
@@ -137,16 +141,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-简单的类使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-简单的类使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/24/简单的类使用/">简单的类使用</a>
+    <h1 class="article-title" itemprop="name">
+      简单的类使用
     </h1>
   
 
@@ -177,10 +179,63 @@ public:
 private:
     float len;
 };    
+</code></pre><a id="more"></a>         
+<pre><code>class rectangle
+{
+public:
+    void notes()
+    {
+        cout &lt;&lt; &quot;请输入长方形长和宽：&quot; &lt;&lt; endl;
+        cin &gt;&gt; len;
+        cin &gt;&gt; shor_t;
+        cout &lt;&lt; &quot;长方形面积为：&quot; &lt;&lt; len*shor_t &lt;&lt; endl;
+    }
+private:
+    float len;
+    float shor_t;
+};
+
+class circle
+{
+public:
+    void notes()
+    {
+        cout &lt;&lt; &quot;请输入半径：&quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;半径=&quot;;
+        cin &gt;&gt; r;
+        cout &lt;&lt; &quot;半径为&quot; &lt;&lt; r &lt;&lt; &quot;的圆面积为&quot; &lt;&lt; 4 * PI*r*r &lt;&lt; endl;
+    }
+private:
+    float r;
+};
+
+int main()
+{
+    while (1)
+    {
+        cout &lt;&lt; &quot;输入将要进行的面积运算（c:圆；r：长方形；s：正方形）&quot;&lt;&lt;endl;
+        char shape;
+        cin &gt;&gt; shape;
+        if (shape == &apos;c&apos;)
+        {
+            circle object;
+            object.notes();
+        }
+        else if (shape == &apos;r&apos;)
+        {
+            rectangle object;
+            object.notes();
+        }
+        else if (shape == &apos;s&apos;)
+        {
+            square object;
+            object.notes();
+        }
+        else cout &lt;&lt; &quot;输入错误&quot; &lt;&lt; endl;
+    }
+    return 0;
+}
 </code></pre>
-        
-          <a class="article-more-a" href="/2018/05/24/简单的类使用/#more">more >></a>
-        
       
 
       
@@ -191,16 +246,75 @@ private:
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/24/简单的类使用/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://pramantha.cn/2018/05/24/简单的类使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/22/操作系统之内存分配/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">操作系统之内存分配</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -220,241 +334,12 @@ private:
 
 
 
-
-  
-    <article id="post-操作系统之内存分配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/22/操作系统之内存分配/">操作系统之内存分配</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/22/操作系统之内存分配/" class="archive-article-date">
-  	<time datetime="2018-05-22T02:07:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为了合理地分配和使用这些存储空间，当用户提出申请主存储器空间时，存储管理必须根据申请者的要求，按一定的策略分析主存空间和使用情况，找出足够的空闲区域给申请者。当作业撤离归还主存资源时，则存储管理要收回占用的主存空间。<br>分别使用首次适应算法、最佳适应算法、最差适应算法实现<br></p>
-        
-          <a class="article-more-a" href="/2018/05/22/操作系统之内存分配/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/22/操作系统之内存分配/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-操作系统之银行家算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/20/操作系统之银行家算法/">操作系统之银行家算法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/20/操作系统之银行家算法/" class="archive-article-date">
-  	<time datetime="2018-05-20T15:01:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>操作系统按照银行家制定的规则为进程分配资源，当进程首次申请资源时，要测试该进程对资源的最大需求量，如果系统现存的资源可以满足它的最大需求量则按当前的申请量分配资源，否则就推迟分配。当进程在执行中继续申请资源时，先测试该进程本次申请的资源数是否超过了该资源所剩余的总量。若超过则拒绝分配资源，若能满足则按当前的申请量分配资源，否则也要推迟分配。    </p>
-        
-          <a class="article-more-a" href="/2018/05/20/操作系统之银行家算法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/20/操作系统之银行家算法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-处理及调度算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/17/处理及调度算法/">处理机调度算法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/17/处理及调度算法/" class="archive-article-date">
-  	<time datetime="2018-05-17T14:35:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在多道程序或多任务系统中，系统同时处于就绪态的进程有若干个。也就是说能运行的进程数远远大于处理机的个数。为了使系统中的各进程能有条不紊地运行，必须选择某种调度策略以选择一进程占用处理机。    </p>
-<p>先来先服务算法和优先级调度算法<br></p>
-        
-          <a class="article-more-a" href="/2018/05/17/处理及调度算法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/17/处理及调度算法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -477,8 +362,8 @@ private:
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
