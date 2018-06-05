@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://pramantha.cn">
-  <title>浮生的一半</title>
+  <title>操作系统之分页管理 | 浮生的一半</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="浮生的一半">
-<meta property="og:url" content="http://pramantha.cn/index.html">
+  <meta name="description" content="模拟请求分页虚拟存储管理中的硬件地址变换过程tags表示是否已装入主存block表示该页对应的主存块号remake表示是否修改过address表示外存地址代码实现两个功能：1.查询功能。输入页号，若在主存中，则输出物理地址；否则，表示产生了一次缺页中断。2.利用先进先出算法实现分页管理的缺页调度">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统之分页管理">
+<meta property="og:url" content="http://pramantha.cn/2018/05/29/操作系统之分页管理/index.html">
 <meta property="og:site_name" content="浮生的一半">
+<meta property="og:description" content="模拟请求分页虚拟存储管理中的硬件地址变换过程tags表示是否已装入主存block表示该页对应的主存块号remake表示是否修改过address表示外存地址代码实现两个功能：1.查询功能。输入页号，若在主存中，则输出物理地址；否则，表示产生了一次缺页中断。2.利用先进先出算法实现分页管理的缺页调度">
+<meta property="og:updated_time" content="2018-06-05T01:06:46.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浮生的一半">
+<meta name="twitter:title" content="操作系统之分页管理">
+<meta name="twitter:description" content="模拟请求分页虚拟存储管理中的硬件地址变换过程tags表示是否已装入主存block表示该页对应的主存块号remake表示是否修改过address表示外存地址代码实现两个功能：1.查询功能。输入页号，若在主存中，则输出物理地址；否则，表示产生了一次缺页中断。2.利用先进先出算法实现分页管理的缺页调度">
   
     <link rel="alternative" href="/atom.xml" title="浮生的一半" type="application/atom+xml">
   
@@ -137,16 +142,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-操作系统之分页管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-操作系统之分页管理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/29/操作系统之分页管理/">操作系统之分页管理</a>
+    <h1 class="article-title" itemprop="name">
+      操作系统之分页管理
     </h1>
   
 
@@ -159,169 +162,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>模拟请求分页虚拟存储管理中的硬件地址变换过程<br>tags表示是否已装入主存<br>block表示该页对应的主存块号<br>remake表示是否修改过<br>address表示外存地址<br>代码实现两个功能：<br>1.查询功能。输入页号，若在主存中，则输出物理地址；否则，表示产生了一次缺页中断。<br>2.利用先进先出算法实现分页管理的缺页调度<br></p>
-        
-          <a class="article-more-a" href="/2018/05/29/操作系统之分页管理/#more">more >></a>
-        
-      
+        <p>模拟请求分页虚拟存储管理中的硬件地址变换过程<br>tags表示是否已装入主存<br>block表示该页对应的主存块号<br>remake表示是否修改过<br>address表示外存地址<br>代码实现两个功能：<br>1.查询功能。输入页号，若在主存中，则输出物理地址；否则，表示产生了一次缺页中断。<br>2.利用先进先出算法实现分页管理的缺页调度<br><a id="more"></a>    </p>
+<pre><code>#include&lt;iostream&gt;    
+#include&lt;queue&gt;    
+#include&lt;cstdio&gt;    
+using namespace std;    
+const int N=8;    
+const int MAXSIZE = 64;    
+queue&lt;int&gt;Q;
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
+typedef struct {
+    int page;
+    bool tags;
+    int block;
+    bool remake;
+    int address;
+}pages;
+pages P[N] = { {0,1,5,1,011},{1,1,8,1,012 },{2,1,9,0,013},{3,1,10,0,015},{4,0,0,0,017},{5,0,0,0,025},{6,0,0,0,212},{7,0,0,0,213} };
 
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/29/操作系统之分页管理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-简单的类使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/24/简单的类使用/">简单的类使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/24/简单的类使用/" class="archive-article-date">
-  	<time datetime="2018-05-24T06:08:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用类来进行进行简单的几何计算        </p>
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-const double PI = 3.1415926;
-
-class square
+void print()
 {
-public:
-    void notes()
+    cout &lt;&lt; &quot;Page   Tags   Block   Alter   Address1&quot; &lt;&lt; endl;
+    for (int i = 0; i &lt; N; i++)
     {
-        cout &lt;&lt; &quot;请输入正方形边长：&quot; &lt;&lt; endl;
-        cout &lt;&lt; &quot;边长：&quot;;
-        cin &gt;&gt; len;
-        cout &lt;&lt; &quot;正方形面积为：&quot; &lt;&lt;len*len&lt;&lt; endl;
+        printf(&quot;%3d    %3d    %3d     %2d    %7d\n&quot;, P[i].page, P[i].tags,P[i].block ,P[i].remake,P[i].address);
     }
-private:
-    float len;
-};    
+}
+
+void page_break(int i)
+{
+    Q.push(i);
+    P[i].tags = 1;
+    P[i].block = P[Q.front()].block;
+    P[Q.front()].block = 0;
+    P[Q.front()].tags = 0;
+    Q.pop();
+    cout &lt;&lt; &quot;Address:&quot; &lt;&lt; P[i].block*MAXSIZE + P[i].address%MAXSIZE &lt;&lt; endl;
+}
+
+int main()
+{
+    Q.push(0);
+    Q.push(1);
+    Q.push(2);
+    Q.push(3);
+    int tag;
+    cout &lt;&lt; &quot;Please enter the page you want to query and enter -1 to exit&quot;&lt;&lt;endl;
+    while (cin &gt;&gt; tag&amp;&amp;tag != -1)
+    {
+        if (tag &gt;= 0 &amp;&amp; tag &lt; 8)
+        {
+            if (P[tag].tags)
+                cout &lt;&lt; &quot;Address:&quot; &lt;&lt; P[tag].block * MAXSIZE + P[tag].address % MAXSIZE &lt;&lt; endl;
+            else {
+                cout &lt;&lt; &quot;The page is not in the main memory, producing a page break&quot; &lt;&lt; endl;
+                page_break(tag);
+            }
+            print();
+        }
+        else cout &lt;&lt; &quot;Can not check this page&quot; &lt;&lt; endl;
+    }
+
+    return 0;
+}
 </code></pre>
-        
-          <a class="article-more-a" href="/2018/05/24/简单的类使用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/24/简单的类使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-操作系统之内存分配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/22/操作系统之内存分配/">操作系统之内存分配</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/22/操作系统之内存分配/" class="archive-article-date">
-  	<time datetime="2018-05-22T02:07:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为了合理地分配和使用这些存储空间，当用户提出申请主存储器空间时，存储管理必须根据申请者的要求，按一定的策略分析主存空间和使用情况，找出足够的空闲区域给申请者。当作业撤离归还主存资源时，则存储管理要收回占用的主存空间。<br>分别使用首次适应算法、最佳适应算法、最差适应算法实现<br></p>
-        
-          <a class="article-more-a" href="/2018/05/22/操作系统之内存分配/#more">more >></a>
-        
       
 
       
@@ -343,16 +247,75 @@ private:
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/22/操作系统之内存分配/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://pramantha.cn/2018/05/29/操作系统之分页管理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/24/简单的类使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">简单的类使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -372,88 +335,12 @@ private:
 
 
 
-
-  
-    <article id="post-操作系统之银行家算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/20/操作系统之银行家算法/">操作系统之银行家算法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/20/操作系统之银行家算法/" class="archive-article-date">
-  	<time datetime="2018-05-20T15:01:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>操作系统按照银行家制定的规则为进程分配资源，当进程首次申请资源时，要测试该进程对资源的最大需求量，如果系统现存的资源可以满足它的最大需求量则按当前的申请量分配资源，否则就推迟分配。当进程在执行中继续申请资源时，先测试该进程本次申请的资源数是否超过了该资源所剩余的总量。若超过则拒绝分配资源，若能满足则按当前的申请量分配资源，否则也要推迟分配。    </p>
-        
-          <a class="article-more-a" href="/2018/05/20/操作系统之银行家算法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/20/操作系统之银行家算法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -476,8 +363,8 @@ private:
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
